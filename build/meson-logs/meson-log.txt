@@ -1,0 +1,10 @@
+Build started at 2019-10-22T09:45:07.748549
+Main binary: /usr/local/opt/python/bin/python3.7
+Python system: Darwin
+The Meson build system
+Version: 0.51.1
+Source dir: /Users/student/Documents/Code/Software/args
+Build dir: /Users/student/Documents/Code/Software/args/build
+Build type: native build
+
+ERROR: No statements in code.

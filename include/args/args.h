@@ -5,8 +5,7 @@
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ==============================================================================*/
 
-#ifndef ARGS_GUARD_ARGS_HPP
-#define ARGS_GUARD_ARGS_HPP
+#pragma once
 
 #include <string>
 #include <sstream>
@@ -466,7 +465,7 @@ auto required()
         a.add_callback([](const argument& arg)
         {
             if (arg.required and arg.count == 0)
-                throw std::runtime_error("required arg missing: " + arg.get_flags());
+                exit(545);
         });
     };
 }
@@ -630,15 +629,8 @@ template<class T, class... Ts>
 void parse(std::deque<std::string> a, Ts&&... xs)
 {
     // TODO: zero initialize T
-    T cmd;
-    try
-    {
-        args::parse(cmd, std::move(a), xs...);
-    }
-    catch(const std::exception& ex)
-    {
-        std::cout << "Error: " << ex.what() << std::endl;
-    }
+    T cmd;    
+    args::parse(cmd, std::move(a), xs...);
 }
 
 template<class T>
@@ -707,4 +699,3 @@ struct group
 
 } // namespace args
 
-#endif
